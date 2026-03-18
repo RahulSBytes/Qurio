@@ -1,0 +1,14 @@
+app
+├── favicon.ico
+├── globals.css
+├── layout.tsx
+├── page.tsx
+└── products
+    ├── [id]
+    │   ├── page.tsx
+    │   └── review
+    │       └── [reviewId]
+    │           └── page.tsx
+    └── page.tsx
+
+
