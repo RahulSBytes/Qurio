@@ -1,18 +1,20 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono as GeistMono } from "next/font/google";
+import { Inter, JetBrains_Mono as JetBrainsMono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import Footer from "@/components/footer";
+import ThemeProvider from "@/context/Theme";
+import Navbar from "@/components/navbar";
+
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = GeistMono({
-  variable: "--font-geist-mono",
+const jetBrainsMono = JetBrainsMono({
   subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -28,11 +30,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex flex-col`}
+        className={`${inter.variable} ${jetBrainsMono.variable} flex h-screen flex-col antialiased`}
       >
-        <Navbar />
-        <main className="flex flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main className="flex flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

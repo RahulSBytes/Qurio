@@ -1,26 +1,204 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-family-inter: "Inter", sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary-100: #fff1e6;
+  --color-primary-500: #ff7000;
+  --color-light-500: #7b8ec8;
+  --color-light-700: #dce3f1;
+  --color-light-800: #f4f6f8;
+  --color-light-900: #ffffff;
+  --color-dark-100: #000000;
+  --color-dark-200: #0f1117;
+  --color-dark-300: #151821;
+  --color-dark-400: #212734;
+  --color-dark-500: #3f4354;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --shadow-light-100:
+    0px 12px 20px 0px rgba(184, 184, 184, 0.03),
+    0px 6px 12px 0px rgba(184, 184, 184, 0.02);
+  --shadow-dark-100: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-inter);
+}
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@utility flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@utility dark-gradient {
+  background: linear-gradient(
+    232deg,
+    rgba(23, 28, 35, 0.41) 0%,
+    rgba(19, 22, 28, 0.7) 100%
+  );
+}
+
+@utility primary-gradient {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+}
+
+@utility light-gradient {
+  background: linear-gradient(
+    132deg,
+    rgba(247, 249, 255, 0.5) 0%,
+    rgba(229, 237, 255, 0.25) 100%
+  );
+}
+
+@utility primary-text-gradient {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility no-focus {
+  &:focus-visible {
+    outline: none;
+    ring: 0;
+    ring-offset: 0;
+  }
+}
+
+.btn {
+  @apply !bg-light-800 dark:!bg-dark-300;
+}
+
+.btn-secondary {
+  @apply !bg-light-800 dark:!bg-dark-400;
+}
+
+.btn-tertiary {
+  @apply !bg-light-700 dark:!bg-dark-300;
+}
+
+.card-wrapper {
+  @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100;
+}
+
+.tab {
+  @apply min-h-full dark:bg-dark-400 bg-light-800 text-light-500
+    dark:data-[state=active]:bg-dark-300
+    data-[state=active]:bg-primary-100
+    data-[state=active]:!text-primary-500;
+}
+
+.markdown {
+  @apply max-w-full;
+}
+
+.markdown h1 {
+  @apply text-3xl font-bold mb-4 text-dark-300 dark:text-white;
+}
+
+.markdown h2 {
+  @apply text-2xl font-semibold mb-3 text-dark-300 dark:text-white;
+}
+
+.markdown h3 {
+  @apply text-xl font-semibold mb-2 text-dark-400 dark:text-white;
+}
+
+.markdown p {
+  @apply text-base mb-4 text-dark-500 dark:text-light-700;
+}
+
+.markdown ul {
+  @apply list-disc ml-6 mb-4 text-dark-500 dark:text-light-500;
+}
+
+.markdown ol {
+  @apply list-decimal ml-6 mb-4 text-dark-500 dark:text-light-700;
+}
+
+.markdown li {
+  @apply mb-2;
+}
+
+.markdown strong {
+  @apply font-bold dark:text-white;
+}
+
+.markdown a {
+  @apply text-blue-500 hover:underline;
+}
+
+.markdown code {
+  @apply bg-gray-100 dark:bg-dark-400 px-1.5 py-0.5 rounded text-sm;
+  color: #ff7000 !important;
+}
+
+.markdown pre {
+  @apply bg-gray-100 dark:bg-dark-400 p-4 rounded overflow-x-auto mb-4;
+  display: grid;
+  width: 100%;
+}
+
+.markdown pre code {
+  @apply bg-transparent p-0;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  color: inherit !important;
+}
+
+.active-theme {
+  filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg)
+    brightness(104%) contrast(106%) !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.hash-span {
+  margin-top: -140px;
+  padding-bottom: 140px;
+  display: block;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cl-internal-b3fm6y {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%) !important;
 }
