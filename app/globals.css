@@ -30,21 +30,14 @@ body {
 }
 
 @utility flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply flex justify-center items-center;
 }
-
 @utility flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @apply flex justify-between items-center;
 }
 
 @utility flex-start {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  @apply flex justify-start items-center;
 }
 
 @utility dark-gradient {
@@ -69,16 +62,13 @@ body {
 
 @utility primary-text-gradient {
   background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-  background-clip: text;
+  @apply bg-clip-text text-transparent;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 @utility no-focus {
   &:focus-visible {
-    outline: none;
-    ring: 0;
-    ring-offset: 0;
+    @apply outline-none ring-0 ring-offset-0;
   }
 }
 
@@ -144,6 +134,9 @@ body {
 .markdown a {
   @apply text-blue-500 hover:underline;
 }
+
+
+
 
 .markdown code {
   @apply bg-gray-100 dark:bg-dark-400 px-1.5 py-0.5 rounded text-sm;
