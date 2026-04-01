@@ -4,8 +4,8 @@ import Theme from "./Theme";
 
 function Navbar() {
   return (
-    <nav className="flex-between  h-14 border-b border-zinc-700 px-6">
-      {/* Logo */}
+    <nav className="flex-between sticky z-30 h-14 border-b border-zinc-700 px-6">
+     
       <Link
         href="/"
         className="font-mono text-2xl font-bold tracking-wide text-zinc-200 transition hover:text-zinc-100"

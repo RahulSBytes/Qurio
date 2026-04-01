@@ -72,6 +72,11 @@ body {
   }
 }
 
+
+@utility background-dark400_light900 {
+  @apply dark:bg-dark-400! bg-light-900!;
+}
+
 .btn {
   @apply !bg-light-800 dark:!bg-dark-300;
 }
@@ -323,3 +328,5 @@ body {
     @apply font-sans;
   }
 }
+
+

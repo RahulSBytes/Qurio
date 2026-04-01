@@ -3,9 +3,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono as JetBrainsMono, Geist } from "next/font/google";
 import "./globals.css";
 
-import Footer from "@/components/footer";
 import ThemeProvider from "@/context/Theme";
-import Navbar from "@/components/Navigation/NavBar/index";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -41,9 +39,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
           <main className="flex flex-1">{children}</main>
-          <Footer />
+          
         </ThemeProvider>
       </body>
     </html>
