@@ -1,11 +1,14 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono as JetBrainsMono } from "next/font/google";
+import { Inter, JetBrains_Mono as JetBrainsMono, Geist } from "next/font/google";
 import "./globals.css";
 
 import Footer from "@/components/footer";
 import ThemeProvider from "@/context/Theme";
 import Navbar from "@/components/navbar";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body
         className={`${inter.variable} ${jetBrainsMono.variable} flex h-screen flex-col antialiased`}
       >
