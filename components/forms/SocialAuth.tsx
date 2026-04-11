@@ -7,18 +7,19 @@ import { toast } from "sonner";
 import ROUTES from "@/constants/routes";
 
 function SocialAuth() {
+
   async function handleSignIn(provider: "github" | "google") {
     try {
       await signIn(provider, {
         callbackUrl: ROUTES.HOME,
-        redirect: false,
+        redirect: true,
       });
     } catch (error) {
       toast.error("Sign in failed", {
         description:
           error instanceof Error
             ? error.message
-            : "an error occured during sign-up",
+            : "an error occurred during sign-in",
         position: "top-right",
       });
     }
