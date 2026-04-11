@@ -45,8 +45,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex flex-1">{children}</main>
-          <Toaster />
         </ThemeProvider>
+          <Toaster />
       </body>
     </html>
   );
