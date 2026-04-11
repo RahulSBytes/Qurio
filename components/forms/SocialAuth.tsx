@@ -2,6 +2,16 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 
 function SocialAuth() {
+
+  function handleSignIn(provider:"github"|"google"){
+    try {
+      console.log("first")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   return (
     <div className="h-full w-full ">
       <div className="flex-center flex-col gap-2 sm:flex-row">

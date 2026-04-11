@@ -1,12 +1,17 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono as JetBrainsMono, Geist } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono as JetBrainsMono,
+  Geist,
+} from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 import ThemeProvider from "@/context/Theme";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,7 +45,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex flex-1">{children}</main>
-          
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
