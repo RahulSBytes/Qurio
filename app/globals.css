@@ -5,24 +5,46 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-family-inter: "Inter", sans-serif;
-
   --color-primary-100: #fff1e6;
   --color-primary-500: #ff7000;
-  --color-light-500: #7b8ec8;
-  --color-light-700: #dce3f1;
-  --color-light-800: #f4f6f8;
-  --color-light-900: #ffffff;
+
   --color-dark-100: #000000;
   --color-dark-200: #0f1117;
   --color-dark-300: #151821;
   --color-dark-400: #212734;
-  --color-dark-500: #3f4354;
+  --color-dark-500: #101012;
+
+  --color-light-400: #858ead;
+  --color-light-500: #7b8ec8;
+  --color-light-700: #dce3f1;
+  --color-light-800: #f4f6f8;
+  --color-light-850: #fdfdfd;
+  --color-light-900: #ffffff;
+
+  --color-link-100: #1da1f2;
+
+  --radius-2: 8px;
+  --radius-1_5: 6px;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 
   --shadow-light-100:
     0px 12px 20px 0px rgba(184, 184, 184, 0.03),
-    0px 6px 12px 0px rgba(184, 184, 184, 0.02);
-  --shadow-dark-100: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
+    0px 6px 12px 0px rgba(184, 184, 184, 0.02),
+    0px 2px 4px 0px rgba(184, 184, 184, 0.03);
+  --shadow-light-200: 10px 10px 20px 0px rgba(218, 213, 213, 0.1);
+  --shadow-light-300: -10px 10px 20px 0px rgba(218, 213, 213, 0.1);
+  --shadow-dark-100: 0px 2px 10px 0px rgba(46, 52, 56, 0.1);
+  --shadow-dark-200: 2px 0px 20px 0px rgba(39, 36, 36, 0.04);
+
+  --background-image-auth-dark: url("/images/auth-dark.png");
+  --background-image-auth-light: url("/images/auth-light.png");
+
+  --breakpoint-xs: 420px;
+
+  --font-inter: var(--font-inter);
+  --font-space-grotesk: var(--font-space-grotesk);
 }
 
 body {
@@ -38,6 +60,10 @@ body {
 
 @utility flex-start {
   @apply flex justify-start items-center;
+}
+
+@utility background-light850_dark100 {
+  @apply bg-light-850 dark:bg-dark-100;
 }
 
 @utility dark-gradient {
@@ -75,6 +101,22 @@ body {
 
 @utility background-dark400_light900 {
   @apply dark:bg-dark-400! bg-light-900!;
+}
+
+@utility base-bold {
+  @apply text-[18px] font-bold leading-[140%];
+}
+
+@utility text-dark300_light900 {
+  @apply text-dark-300! dark:text-light-900!;
+}
+
+@utility base-medium {
+  @apply text-[18px] font-medium leading-[25.2px];
+}
+
+@utility invert-colors {
+  @apply invert dark:invert-0;
 }
 
 .btn {
