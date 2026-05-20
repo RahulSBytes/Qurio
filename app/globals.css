@@ -47,6 +47,27 @@
   --font-space-grotesk: var(--font-space-grotesk);
 }
 
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 body {
   font-family: var(--font-family-inter);
 }
@@ -62,8 +83,20 @@ body {
   @apply flex justify-start items-center;
 }
 
+@utility small-medium {
+  @apply text-[12px] font-medium leading-[15.6px];
+}
+
+@utility light-border {
+  @apply border-light-800 dark:border-dark-300;
+}
+
 @utility background-light850_dark100 {
   @apply bg-light-850 dark:bg-dark-100;
+}
+
+@utility background-light900_dark200 {
+  @apply bg-light-900 dark:bg-dark-200;
 }
 
 @utility dark-gradient {
