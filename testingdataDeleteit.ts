@@ -11,6 +11,7 @@ const questions = [
     author: {
       _id: "u1",
       name: "Rahul",
+      image: "https://i.pravatar.cc/150?img=1",
     },
     upvotes: 45,
     answers: 8,
@@ -29,6 +30,7 @@ const questions = [
     author: {
       _id: "u2",
       name: "Aman",
+      image: "https://i.pravatar.cc/150?img=2",
     },
     upvotes: 60,
     answers: 12,
@@ -47,6 +49,7 @@ const questions = [
     author: {
       _id: "u3",
       name: "Priya",
+      image: "https://i.pravatar.cc/150?img=3",
     },
     upvotes: 95,
     answers: 15,
@@ -65,6 +68,7 @@ const questions = [
     author: {
       _id: "u4",
       name: "Neha",
+      image: "https://i.pravatar.cc/150?img=4",
     },
     upvotes: 130,
     answers: 20,
@@ -82,7 +86,8 @@ const questions = [
     ],
     author: {
       _id: "u5",
-      name: "Karan",
+      name: "tusar",
+      image: "https://i.pravatar.cc/150?img=5",
     },
     upvotes: 25,
     answers: 6,
@@ -101,6 +106,7 @@ const questions = [
     author: {
       _id: "u6",
       name: "Simran",
+      image: "https://i.pravatar.cc/150?img=6",
     },
     upvotes: 75,
     answers: 10,
@@ -120,6 +126,7 @@ const questions = [
     author: {
       _id: "u7",
       name: "Arjun",
+      image: "https://i.pravatar.cc/150?img=7",
     },
     upvotes: 40,
     answers: 7,

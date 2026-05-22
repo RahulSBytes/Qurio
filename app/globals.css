@@ -151,6 +151,11 @@ body {
   border-radius: 50px;
 }
 
+@utility small-regular {
+  @apply text-[12px] font-normal leading-[15.6px];
+}
+
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

@@ -1,7 +1,8 @@
 
 interface Author{
     _id : string,
-    name : string
+    name : string,
+    image : string
 }
 
 interface Tags {

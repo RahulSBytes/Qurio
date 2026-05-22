@@ -2,7 +2,6 @@ import ROUTES from '@/constants/routes'
 import { hotQuestions, popularTags } from '@/testingdataDeleteit'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import TagCard from '../cards/TagCard'
 
 
@@ -26,7 +25,7 @@ function RightSidebar() {
           <h3 className="h3-bold text-dark200_light900">Popular tags</h3>
           <div className="mt-7 flex flex-col gap-4">
             {popularTags.map(({_id,name,questions})=>(
-              <TagCard key={_id} name={name} questions={questions} showCount compact />
+              <TagCard key={_id} _id={_id} name={name} questions={questions} showCount compact />
             ))}
           </div>
         </div>

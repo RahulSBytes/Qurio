@@ -44,10 +44,35 @@ function QuestionCards({
           <TagCard key={_id} _id={_id} name={name} compact />
         ))}
       </div>
-      
-      <div className="flex items-center gap-5 max-sm:flex-wrap max-sm:justify-start">
-        <Matrix />
+
+      <div className=" flex flex-between mt-6 w-full flex-wrap gap-3">
+        
+        <Matrix  value={author.name} imgUrl={author.image} alt={author.name} title={`• asked ${getTimeStamp(createdAt)}`}  href={ROUTES.PROFILE(author._id)} textStyles="body-medium text-dark400_light700" isAuthor />
+        <div  className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start" >
+<Matrix 
+imgUrl="/assets/icons/like.svg"
+alt="like"
+value={upvotes}
+title=" Votes"
+textStyles="small-medium text-dark400_light800"
+/>
+<Matrix 
+imgUrl="/assets/icons/message.svg"
+alt="answers"
+value={answers}
+title=" Answers"
+textStyles="small-medium text-dark400_light800"
+/>
+<Matrix 
+imgUrl="/assets/icons/eye.svg"
+alt="views"
+value={views}
+title=" Views"
+textStyles="small-medium text-dark400_light800"
+/>
+        </div>
       </div>
+
     </div>
   );
 }
