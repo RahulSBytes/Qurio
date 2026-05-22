@@ -1,11 +1,31 @@
 // import { signOut } from "@/auth";
+import QuestionCards from "@/components/cards/QuestionCards";
+import HomeFilter from "@/components/filter/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import {questions} from "@/testingdataDeleteit";
 import Link from "next/link";
 
-export default async function Home() {
-  
+
+interface SearchParams{
+  searchParams : Promise<{[key:string]:string}>
+}
+
+
+export default async function Home({searchParams}: SearchParams) {
+  const {query = "", filter =""} = await searchParams;
+
+const matchesQuery = questions.filter((question) =>
+  question.title.toLowerCase().includes(query?.toLowerCase()) &&
+  (
+    filter === "" ||
+    question.tags.some(
+      (tag) => tag.name.toLowerCase() === filter.toLowerCase()
+    )
+  )
+);
+
   return (
     <>
      <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -27,12 +47,13 @@ export default async function Home() {
         otherClasses="flex-1"
         />
       </section>
-        <div>
-          <p>Question Card 1</p>
-          <p>Question Card 2</p>
-          <p>Question Card 3</p>
-          <p>Question Card 4</p>
-         
+      <HomeFilter/>
+        <div className="mt-10 flex w-full flex-col gap-6">
+          {
+            matchesQuery.map((question)=>(
+              <QuestionCards key={question._id} question={question} />
+            ))
+          }
         </div>
     </>
   );
