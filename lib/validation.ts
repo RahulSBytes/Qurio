@@ -8,7 +8,6 @@ export const SignInSchema = z.object({
     .max(100, { message: "The password shouldn't exceed 100 character" }),
 });
 
-
 export const signUpSchema = z.object({
   username: z
     .string()
@@ -35,4 +34,23 @@ export const signUpSchema = z.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()[\]{}\-_=+|\\:;"'<>,./~`]).+$/,
       "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
     ),
+});
+
+export const AskQuestionSchema = z.object({
+  title: z
+    .string()
+    .min(5, { message: "title is required." })
+    .max(100, { message: "Title cannot exceed 100 characters" }),
+
+  content: z.string().min(1, { message: "Body is required." }),
+
+  tags: z
+    .array(
+      z
+        .string()
+        .min(1, { message: "Tag is required." })
+        .max(30, { message: "Tag cannot exceed 30 characters." })
+    )
+    .min(1, { message: "At least one tag is required." })
+    .max(3, { message: "Cannot add more than 3 tags." }),
 });

@@ -19,12 +19,12 @@ function Matrix({ imgUrl, title, href, value, textStyles, imgStyles, isAuthor , 
 
   const metricContent = <>
   <Image src={imgUrl} width={16} height={16} alt={alt} className={`rounded-full object-contain ${imgStyles}`} />
-  <p className={`${textStyles} flex items-center gap-1`}> {value}</p>
+  <p className={`${textStyles} flex items-center`}> {value}</p>
   <span className={`small-regular line-clamp-1 ${isAuthor?"max-sm:hidden" : ""}`}>{title}</span>
   </>
 
   return (
-    href ? <Link href={href} className='flex-center gap-1'>{metricContent}</Link> : metricContent);
+    href ? <Link href={href} className='flex-center gap-1'>{metricContent}</Link> :<div className='flex-center gap-1'> {metricContent} </div>);
 }
 
 export default Matrix
