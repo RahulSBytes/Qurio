@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import { useRef } from 'react'
 
 import {useForm} from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -7,8 +7,15 @@ import { AskQuestionSchema } from '@/lib/validation'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage, FormDescription } from '../ui/form'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
+import {MDXEditorMethods} from "@mdxeditor/editor"
+import dynamic from 'next/dynamic'
+
+const Editor = dynamic(() => import('../editor'), {
+  ssr: false
+})
 
 function QuestionForm() {
+  const editorRef = useRef<MDXEditorMethods>(null);
 
   const form = useForm({
         resolver: zodResolver(AskQuestionSchema),
@@ -52,16 +59,20 @@ Be specific and imagine you&apos;re asking a quesion to another person.
 <FormField
             
             control={form.control}
-            name="title"
+            name="content" 
             render={({ field }) => (
               <FormItem>
                 <FormLabel className='paragraph-semibold text-dark400_light800'>
                   Detailed explanation of your problem <span className='text-primary-500'>*</span>
                 </FormLabel>
 
-                <FormControl >
-                  Editor
-                </FormControl>
+                 <FormControl>
+                                <Editor
+                                    value={field.value}
+                                    fieldChange={field.onChange}
+                                    editorRef={editorRef}
+                                />
+                            </FormControl>
 <FormDescription className='body-regular text-light-500 mt-2.5'>
 Introduce the problem and expand on what you&apos;ve put in the title.
 </FormDescription>
