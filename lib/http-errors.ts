@@ -1,3 +1,6 @@
+
+// base class
+
 export class RequestError extends Error {
   statusCode: number;
   errors?: Record<string, string[]>;
@@ -8,11 +11,13 @@ export class RequestError extends Error {
     errors?: Record<string, string[]>
   ) {
     super(message);
-    this.statusCode = statusCode;
     this.name = "RequestError";
+    this.statusCode = statusCode;
     this.errors = errors;
   }
 }
+
+
 
 export class ValidationError extends RequestError {
   constructor(fieldErrors: Record<string, string[]>) {
@@ -38,6 +43,7 @@ export class ValidationError extends RequestError {
     return formattedMessages.join(", ");
   }
 }
+
 
 export class NotFoundError extends RequestError {
   constructor(resource: string) {

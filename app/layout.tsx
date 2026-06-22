@@ -15,6 +15,7 @@ import { auth } from "@/auth";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
