@@ -17,6 +17,12 @@ const eslintConfig = defineConfig([
     // "plugin:tailwindcss/recommended",
     "prettier"
   ),
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "no-undef": "off",
+    },
+  },
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
