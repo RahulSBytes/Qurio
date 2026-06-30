@@ -1,15 +1,22 @@
 "use client";
-import { SheetClose } from "@/components/ui/sheet";
-import { sidebarLinks } from "@/constants";
-import { cn } from "@/lib/utils";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-function NavLinks({ isMobileNav = false }: { isMobileNav?: boolean }) {
+import { SheetClose } from "@/components/ui/sheet";
+import { sidebarLinks } from "@/constants";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  isMobileNav?: boolean;
+  userId?: string;
+}
+
+const NavLinks = ({ isMobileNav = false, userId }: Props) => {
   const pathname = usePathname();
-  const userId = 1;
+
   return (
     <>
       {sidebarLinks.map((item) => {
@@ -40,22 +47,27 @@ function NavLinks({ isMobileNav = false }: { isMobileNav?: boolean }) {
               height={20}
               className={cn({ "invert-colors": !isActive })}
             />
-            <p className={cn(isActive ? "base-bold" : "base-medium")}>
+            <p
+              className={cn(
+                isActive ? "base-bold" : "base-medium",
+                !isMobileNav && "max-lg:hidden"
+              )}
+            >
               {item.label}
             </p>
           </Link>
         );
 
         return isMobileNav ? (
-          <SheetClose asChild key={item.label}>
+          <SheetClose asChild key={item.route}>
             {LinkComponent}
           </SheetClose>
         ) : (
-          <React.Fragment key={item.label}>{LinkComponent}</React.Fragment>
+          <React.Fragment key={item.route}>{LinkComponent}</React.Fragment>
         );
       })}
     </>
   );
-}
+};
 
 export default NavLinks;

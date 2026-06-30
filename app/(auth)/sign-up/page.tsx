@@ -1,20 +1,17 @@
-// import { Button } from "../ui/button";
-"use client"
-import { AuthForm } from "@/components/forms/AuthForm";
-import { signUpSchema } from "@/lib/validation";
-// import { Button } from "@/components/ui/button";
-// import ROUTES from "@/constants/routes";
-// import Link from "next/link";
+"use client";
 
-function SignUp() {
-  return (
-    <AuthForm
-      FormType={"SIGN_UP"}
-      schema={signUpSchema}
-      defaultValues={{ name: "", username: "", email: "", password: ""}}
-      onSubmit={(data) => Promise.resolve({ success: true, data })}
-    />
-  );
-}
+
+import { AuthForm } from "@/components/forms/AuthForm";
+import { signUpWithCredentials } from "@/lib/actions/auth.action";
+import { signUpSchema } from "@/lib/validation";
+
+const SignUp = () => (
+  <AuthForm
+    formType="SIGN_UP"
+    schema={signUpSchema}
+    defaultValues={{ username: "", name: "", email: "", password: "" }}
+    onSubmit={signUpWithCredentials}
+  />
+);
 
 export default SignUp;

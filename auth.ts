@@ -18,6 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Credentials({
       async authorize(credentials) {
 
+        console.log("i am executed in auth.ts")
         const validatedFields = SignInSchema.safeParse(credentials);
 
         if (validatedFields.success) {

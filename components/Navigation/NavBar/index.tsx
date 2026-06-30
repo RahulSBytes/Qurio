@@ -2,8 +2,11 @@ import { Search } from "lucide-react";
 import Link from "next/link";
 import Theme from "./Theme";
 import MobileNavigation from "./MobileNavigation";
+import { auth } from "@/auth";
+import UserAvatar from "@/components/UserAvatar";
 
-function Navbar() {
+async function Navbar() {
+    const session = await auth();
   return (
     <nav className="flex-between sticky z-30 h-14 border-b border-zinc-700 px-6">
       <Link
@@ -22,6 +25,15 @@ function Navbar() {
       </div>
       <div className="flex">
         <Theme />
+
+        {session?.user?.id && (
+          <UserAvatar
+            id={session.user.id}
+            name={session.user.name!}
+            imageUrl={session.user?.image}
+          />
+        )}
+
         <MobileNavigation/>
       </div>
     </nav>
