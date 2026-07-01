@@ -10,7 +10,6 @@ type ActionResponse<T = null> = {
   status?: number;
 };
 
-
 type SuccessResponse<T = null> = ActionResponse<T> & { success: true };
 type ErrorResponse = ActionResponse<undefined> & { success: false };
 
@@ -28,31 +27,29 @@ interface RemoveUrlQueryParams {
   keysToRemove: string[];
 }
 
-interface Author{
-    _id : string,
-    name : string,
-    image : string
+interface Author {
+  _id: string;
+  name: string;
+  image: string;
 }
 
 interface Tags {
-    _id:string,
-    name: string
+  _id: string;
+  name: string;
 }
 
-
-
 interface Question {
-    _id: string,
-    title: string,
-    description:
-      string,
-    tags: Tags[],
-    author: Author,
-    upvotes: number,
-    answers: number,
-    views: number,
-    createdAt: string,
-  }
+  _id: string;
+  title: string;
+  content: string;
+  description: string;
+  tags: Tags[];
+  author: Author;
+  upvotes: number;
+  answers: number;
+  views: number;
+  createdAt: string;
+}
 
 interface Answer {
   _id: string;
