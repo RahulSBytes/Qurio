@@ -4,7 +4,7 @@ import { Question } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 import TagCard from "./TagCard";
-import Matrix from "../Matrix";
+import Matrix from "../Metric";
 
 interface Props {
   question: Question;

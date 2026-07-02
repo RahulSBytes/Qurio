@@ -15,7 +15,7 @@ interface Props {
 }
 
 
-function Matrix({ imgUrl, title, href, value, textStyles, imgStyles, isAuthor , alt}: Props) {
+function Metric({ imgUrl, title, href, value, textStyles, imgStyles, isAuthor , alt}: Props) {
 
   const metricContent = <>
   <Image src={imgUrl} width={16} height={16} alt={alt} className={`rounded-full object-contain ${imgStyles}`} />
@@ -27,4 +27,4 @@ function Matrix({ imgUrl, title, href, value, textStyles, imgStyles, isAuthor , 
     href ? <Link href={href} className='flex-center gap-1'>{metricContent}</Link> :<div className='flex-center gap-1'> {metricContent} </div>);
 }
 
-export default Matrix
+export default Metric
