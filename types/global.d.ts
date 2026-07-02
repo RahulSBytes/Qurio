@@ -1,5 +1,3 @@
-import { NextResponse } from "next/server";
-
 type ActionResponse<T = null> = {
   success: boolean;
   data?: T;
@@ -27,28 +25,29 @@ interface RemoveUrlQueryParams {
   keysToRemove: string[];
 }
 
+interface Tag {
+  _id: string;
+  name: string;
+  questions?: number;
+}
+
 interface Author {
   _id: string;
   name: string;
   image: string;
 }
 
-interface Tags {
-  _id: string;
-  name: string;
-}
-
 interface Question {
   _id: string;
   title: string;
   content: string;
-  description: string;
-  tags: Tags[];
+  tags: Tag[];
   author: Author;
+  createdAt: Date;
   upvotes: number;
+  downvotes: number;
   answers: number;
   views: number;
-  createdAt: string;
 }
 
 interface Answer {

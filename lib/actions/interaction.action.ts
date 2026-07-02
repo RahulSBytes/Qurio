@@ -6,7 +6,6 @@ import Interaction, { IInteractionDoc } from "@/database/interaction.model";
 
 import action from "../handlers/action";
 import handleError from "../handlers/error";
-import { ActionResponse, ErrorResponse } from "@/types/global";
 import User from "@/database/user.model";
 import { CreateInteractionSchema } from "../validation";
 

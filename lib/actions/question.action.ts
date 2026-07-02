@@ -13,7 +13,6 @@ import handleError from "@/lib/handlers/error";
 
 import Interaction from "@/database/interaction.model";
 import dbConnect from "../mongoose";
-import { ActionResponse, ErrorResponse, PaginatedSearchParams, Question } from "@/types/global";
 import { createInteraction } from "./interaction.action";
 import { AskQuestionSchema, DeleteQuestionSchema, EditQuestionSchema, GetQuestionSchema, IncrementViewsSchema, PaginatedSearchParamsSchema } from "../validation";
 import TagQuestion from "@/database/tag-question.model";

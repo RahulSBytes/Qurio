@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Input } from '../ui/input'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { formUrlQuery, removeKeyFromQuery } from '@/lib/url'
@@ -11,10 +11,11 @@ interface Props {
     imgSrc : string,
     placeholder : string,
     otherClasses: string,
+    iconPosition: "left" | "right";
     route : string
 }
 
-const LocalSearch = ({imgSrc, route, placeholder, otherClasses}:Props) => {
+const LocalSearch = ({imgSrc, route, placeholder,iconPosition, otherClasses}:Props) => {
 const router = useRouter()
 const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -47,9 +48,25 @@ const pathname = usePathname();
   return (
     <div  className={`background-light800_darkgradient flex min-h-14 grow items-center gap-4 rounded-[10px] px-4 ${otherClasses}`}>
         
-        <Image src={imgSrc} alt="search" width={24} height={24} className='cursor-pointer'/>
+       {iconPosition === "left" && (
+        <Image
+          src={imgSrc}
+          alt="search"
+          width={24}
+          height={24}
+          className="cursor-pointer"
+        />
+      )}
         <Input type='text' placeholder={placeholder} onChange={(e)=>setSearchQuery(e.target.value)} value={searchQuery}  className="paragraph-regular no-focus placeholder text-dark400_light700 border-none shadow-none outline-hidden"/>
-        
+         {iconPosition === "right" && (
+        <Image
+          src={imgSrc}
+          alt="search"
+          width={15}
+          height={15}
+          className="cursor-pointer"
+        />
+      )}
     </div>
   )
 }

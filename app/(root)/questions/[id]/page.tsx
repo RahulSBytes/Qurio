@@ -1,5 +1,3 @@
-import { RouteParams } from '@/types/global'
-import React from 'react'
 
 async function QuestionDetails({params}: RouteParams) {
     const {id}= await params;

@@ -18,7 +18,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "../ui/input";
 import { AskQuestionSchema } from "@/lib/validation";
 import { createQuestion, editQuestion } from "@/lib/actions/question.action";
-import { Question } from "@/types/global";
+
 
 const Editor = dynamic(() => import("@/components/editor"), {
   ssr: false,
@@ -148,7 +148,7 @@ const QuestionForm = ({ question, isEdit = false }: Params) => {
           )}
         />
 
-        <FormField
+         <FormField
           control={form.control}
           name="content"
           render={({ field }) => (
