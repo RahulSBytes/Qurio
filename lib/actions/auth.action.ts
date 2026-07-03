@@ -10,7 +10,6 @@ import User from "@/database/user.model";
 import action from "../handlers/action";
 import handleError from "../handlers/error";
 import { NotFoundError } from "../http-errors";
-import { ActionResponse, ErrorResponse } from "@/types/global";
 import { SignInSchema, signUpSchema } from "../validation";
 
 export async function signUpWithCredentials(

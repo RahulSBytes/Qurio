@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Suspense } from "react";
 
-import { hasVoted } from "@/lib/actions/vote.action";
 import { cn, getTimeStamp } from "@/lib/utils";
 
 import Preview from "../editor/Preview";
 import EditDeleteAction from "../user/EditDeleteAction";
 import UserAvatar from "../UserAvatar";
 import Votes from "../votes/Votes";
+import { hasVoted } from "@/lib/actions/vote.action";
 
 interface Props extends Answer {
   containerClasses?: string;

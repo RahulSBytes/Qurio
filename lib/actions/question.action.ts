@@ -40,6 +40,7 @@ export async function createQuestion(
   session.startTransaction();
 
   try {
+
     const [question] = await QuestionModel.create(
       [{ title, content, author: userId }],
       { session }
