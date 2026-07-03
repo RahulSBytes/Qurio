@@ -4,20 +4,21 @@ import { redirect } from "next/navigation";
 import { after } from "next/server";
 import { Suspense } from "react";
 
-import AllAnswers from "@/components/answers/AllAnswers";
 import TagCard from "@/components/cards/TagCard";
 import Preview from "@/components/editor/Preview";
-import AnswerForm from "@/components/forms/AnswerForm";
-import SaveQuestion from "@/components/questions/SaveQuestion";
-import UserAvatar from "@/components/UserAvatar";
-import Votes from "@/components/votes/Votes";
+
 import ROUTES from "@/constants/routes";
-import { hasSavedQuestion } from "@/lib/actions/collection.action";
 import { getQuestion, incrementViews } from "@/lib/actions/question.action";
-import { hasVoted } from "@/lib/actions/vote.action";
 import { formatNumber, getTimeStamp } from "@/lib/utils";
 import Metric from "@/components/Metric";
 import { getAnswers } from "@/lib/actions/answer.action";
+import AllAnswers from "@/components/answers/AllAnswers";
+import AnswerForm from "@/components/forms/AnswerForm";
+import UserAvatar from "@/components/UserAvatar";
+import { hasVoted } from "@/lib/actions/vote.action";
+import Votes from "@/components/votes/Votes";
+import { hasSavedQuestion } from "@/lib/actions/collection.action";
+import SaveQuestion from "@/components/questions/SaveQuestion";
 
 export async function generateMetadata({
   params,

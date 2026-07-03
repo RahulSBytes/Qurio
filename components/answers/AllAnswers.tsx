@@ -3,7 +3,7 @@ import React from "react";
 import { AnswerFilters } from "@/constants/filters";
 import { EMPTY_ANSWERS } from "@/constants/states";
 
-import AnswerCard from "../cards/AnswerCard";
+import AnswerCard from "@/components/cards/AnswerCard";
 import DataRenderer from "../DataRenderer";
 import Pagination from "../Pagination";
 import CommonFilter from "../filter/CommonFilter";
