@@ -43,6 +43,10 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
     },
   });
 
+
+
+
+
   const handleCreateAnswer = async (values: z.infer<typeof AnswerSchema>) => {
     startAnsweringTransition(async () => {
       const result = await createAnswer({
@@ -51,9 +55,11 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
       });
 
       if (result.success) {
+        form.reset();
+
         toast({
           title: "Success",
-          description: "Your answer has been created successfully.",
+          description: "Your answer has been posted successfully.",
         });
 
         if (editorRef.current) {
@@ -86,16 +92,15 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
       const { success, data, error } = await api.ai.getAnswer(questionTitle, questionContent, userAnswer);
 
       if (!success) {
-        return toast({
+        return toast({ 
           title: "Error",
           description: `Failed to generate AI answer. Please try again. ${JSON.stringify(error)}`,
           variant: "destructive",
         });
       }
-
+      
       const formattedAnswer = data.replace(/<br>/g, " ").toString().trim();
-
-      if (editorRef.current) {
+    if (editorRef.current) {
         editorRef.current.setMarkdown(formattedAnswer);
 
         // validate content field automatically
@@ -103,11 +108,12 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
         form.trigger("content");
       }
 
+
       toast({
         title: "AI Answer Generated",
         description: "The AI has successfully generated an answer.",
       });
-    } catch (error: Error | unknown) {
+    } catch (error) {
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "There was a problem with your request.",
