@@ -1,9 +1,65 @@
-import React from 'react'
+import DataRenderer from "@/components/DataRenderer";
+import Pagination from "@/components/Pagination";
+import LocalSearch from "@/components/search/LocalSearch";
+import { CollectionFilters } from "@/constants/filters";
+import ROUTES from "@/constants/routes";
+import { EMPTY_COLLECTIONS } from "@/constants/states";
+import { getSavedQuestions } from "@/lib/actions/collection.action";
+import CommonFilter from "@/components/filter/CommonFilter";
+import QuestionCards from "@/components/cards/QuestionCards";
 
-function Collections() {
+const CollectionPage = async ({ searchParams }: RouteParams) => {
+  const { page, pageSize, query, filter } = await searchParams;
+
+  const { success, data, error } = await getSavedQuestions({
+    page: Number(page) || 1,
+    pageSize: Number(pageSize) || 10,
+    query,
+    filter,
+  });
+
+  const { collection, isNext } = data || {};
+
   return (
-    <div>Collections</div>
-  )
-}
+    <>
+      <h1 className="h1-bold text-dark100_light900">Saved Questions</h1>
 
-export default Collections
+      <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
+        <LocalSearch
+          route={ROUTES.COLLECTION}
+          iconPosition="left"
+          imgSrc="/icons/search.svg"
+          placeholder="Search amazing minds here..."
+          otherClasses="flex-1"
+        />
+
+        <CommonFilter
+          filters={CollectionFilters}
+          otherClasses="min-h-[56px] sm:min-w-[170px]"
+        />
+      </div>
+
+      <DataRenderer
+        success={success}
+        error={error}
+        data={collection}
+        empty={EMPTY_COLLECTIONS}
+        render={(collection) => (
+          <div className="mt-10 flex w-full flex-col gap-6">
+            {collection.map((item) => (
+              <QuestionCards key={item._id} question={item.question} />
+            ))}
+          </div>
+        )}
+      />
+
+      <Pagination
+        page={page}
+        isNext={isNext || false}
+        containerClasses="mt-10"
+      />
+    </>
+  );
+};
+
+export default CollectionPage;

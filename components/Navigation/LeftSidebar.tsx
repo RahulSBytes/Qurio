@@ -39,7 +39,7 @@ const LeftSidebar = async () => {
         ) : (
           <>
             <Button
-              className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none"
+              className="small-medium btn-secondary min-h-10.25 w-full rounded-lg px-4 py-3 shadow-none"
               asChild
             >
               <Link href={ROUTES.SIGN_IN}>
