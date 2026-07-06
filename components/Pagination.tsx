@@ -21,12 +21,12 @@ function Pagination({ page = 1, isNext, containerClasses }: Props) {
   const handleNavigation = (type: "prev" | "next") => {
     const nextPageNumber =
       type === "prev" ? Number(page) - 1 : Number(page) + 1;
-    const value = nextPageNumber > 1 ? nextPageNumber.toString() : null;
+    // const value = nextPageNumber > 1 ? nextPageNumber.toString() : "";
 
     const newUrl = formUrlQuery({
       params: searchParams.toString(),
       key: "page",
-      value,
+      value : nextPageNumber.toString(),
     });
 
     router.push(newUrl);
