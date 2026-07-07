@@ -52,37 +52,37 @@ function Editor({
     const { resolvedTheme } = useTheme();
     const theme = resolvedTheme === 'dark' ? [basicDark] : [];
 
-    return (
-        <MDXEditor
-            key={resolvedTheme}
-            ref={editorRef}
-            markdown={value}
-            className='background-light800_dark200 light-border-2 markdown-editor dark-editor w-full border'
-            onChange={fieldChange}
-            plugins={[
-                headingsPlugin(),
-                listsPlugin(),
-                listsPlugin(),
-                linkPlugin(),
-                linkDialogPlugin(),
-                imagePlugin(),
-                codeBlockPlugin({defaultCodeBlockLanguage : ""}),
-                tablePlugin(),
-                codeMirrorPlugin({
-                    codeBlockLanguages : {
-                        css:'css',
-                        txt:'txt',
-                        sql:'sql',
-                        js:'javascript',
-                        ts:'typescript',
-                        saas:'saas',
-                        "":"unspecified",
-                        tsx : 'Typescript (React)',
-                        jsx : 'Javascript (React)'
+return (
+    <MDXEditor
+        key={resolvedTheme}
+        ref={editorRef}
+        markdown={value}
+        className='background-light800_dark200 light-border-2 markdown-editor dark-editor w-full border'
+        onChange={fieldChange}
+        plugins={[
+        headingsPlugin(),
+        listsPlugin(),
+        listsPlugin(),
+        linkPlugin(),
+        linkDialogPlugin(),
+        imagePlugin(),
+        codeBlockPlugin({defaultCodeBlockLanguage : ""}),
+        tablePlugin(),
+        codeMirrorPlugin({
+            codeBlockLanguages : {
+                css:'css',
+                txt:'txt',
+                sql:'sql',
+                js:'javascript',
+                ts:'typescript',
+                saas:'saas',
+                "":"unspecified",
+                tsx : 'Typescript (React)',
+                jsx : 'Javascript (React)'
 
-                    },
-                    autoLoadLanguageSupport: true,
-codeMirrorExtensions: theme,
+            },
+            autoLoadLanguageSupport: true,
+            codeMirrorExtensions: theme,
                 }),
                 diffSourcePlugin({viewMode : 'rich-text', diffMarkdown: ''}),
                 quotePlugin(),
@@ -98,22 +98,22 @@ codeMirrorExtensions: theme,
                                     contents : ()=> <ChangeCodeMirrorLanguage/>
                                 },
                                 {
-fallback : ()=> (
-    <>
-    <UndoRedo/>
-    <Separator/>
-    <BoldItalicUnderlineToggles/>
-    <Separator/>
-    <ListsToggle/>
-    <Separator/>
-    <CreateLink/>
-    <InsertImage/>
-    <Separator/>
-    <InsertTable/>
-    <InsertThematicBreak/>
-    <InsertCodeBlock/>
-    </>
-)
+        fallback : ()=> (
+            <>
+            <UndoRedo/>
+            <Separator/>
+            <BoldItalicUnderlineToggles/>
+            <Separator/>
+            <ListsToggle/>
+            <Separator/>
+            <CreateLink/>
+            <InsertImage/>
+            <Separator/>
+            <InsertTable/>
+            <InsertThematicBreak/>
+            <InsertCodeBlock/>
+            </>
+        )
                                 }
                             ]
                         }

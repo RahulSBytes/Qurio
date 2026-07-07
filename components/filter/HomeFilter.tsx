@@ -17,9 +17,6 @@ const HomePageFilters = [
 
 function HomeFilter() {
 
-    
-    
-
 
 const router = useRouter()
 const searchParams = useSearchParams();
@@ -31,9 +28,9 @@ let newUrl="";
 if(filter=== active){
     setActive("");
     newUrl = removeKeyFromQuery({
-                        params: searchParams.toString(),
-                        keysToRemove: ["filter"]
-                    });
+      params: searchParams.toString(),
+        keysToRemove: ["filter"]
+      });
 } else{
                     setActive(filter);
     newUrl = formUrlQuery({

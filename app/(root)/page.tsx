@@ -4,7 +4,6 @@ import HomeFilter from "@/components/filter/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
-// import {questions} from "@/testingdataDeleteit";
 import Link from "next/link";
 import DataRenderer from "@/components/DataRenderer";
 import { EMPTY_QUESTION } from "@/constants/states";
@@ -53,7 +52,7 @@ export default async function Home({searchParams}: RouteParams) {
         <LocalSearch
         route="/"
         iconPosition="left"
-        imgSrc="/assets/icons/search.svg" 
+        imgSrc="icons/search.svg" 
         placeholder="Search questions...."
         otherClasses="flex-1"
         />

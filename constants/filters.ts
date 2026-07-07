@@ -38,3 +38,18 @@ export const GlobalSearchFilters = [
   { name: "User", value: "user" },
   { name: "Tag", value: "tag" },
 ];
+
+
+
+export const countriesList = [
+    { name: { common: "India" } },
+    { name: { common: "United States" } },
+    { name: { common: "United Kingdom" } },
+    { name: { common: "Canada" } },
+    { name: { common: "Australia" } },
+    { name: { common: "Germany" } },
+    { name: { common: "France" } },
+    { name: { common: "Japan" } },
+    { name: { common: "China" } },
+    { name: { common: "Brazil" } },
+  ]

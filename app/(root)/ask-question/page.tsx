@@ -2,7 +2,6 @@ import { auth } from '@/auth';
 import QuestionForm from '@/components/forms/QuestionForm'
 import ROUTES from '@/constants/routes';
 import { redirect } from 'next/navigation';
-import React from 'react'
 
 async function AskAQuestion() {
 

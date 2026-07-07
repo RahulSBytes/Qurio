@@ -38,15 +38,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
 
-<head>
-  
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
-</head>
+    <head>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />   
+    </head>
 
       <SessionProvider session={session}>
 
-      
       <body
         className={`${inter.variable} ${jetBrainsMono.variable} flex h-screen flex-col antialiased`}
       >

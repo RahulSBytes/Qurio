@@ -40,27 +40,27 @@ function QuestionCards({
         
         <Matrix  value={author.name} imgUrl={author.image} alt={author.name} title={`• asked ${getTimeStamp(createdAt.toString())}`}  href={ROUTES.PROFILE(author._id)} textStyles="body-medium text-dark400_light700" isAuthor />
         <div  className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start" >
-<Matrix 
-imgUrl="/assets/icons/like.svg"
-alt="like"
-value={upvotes}
-title=" Votes"
-textStyles="small-medium text-dark400_light800"
-/>
-<Matrix 
-imgUrl="/assets/icons/message.svg"
-alt="answers"
-value={answers}
-title=" Answers"
-textStyles="small-medium text-dark400_light800"
-/>
-<Matrix 
-imgUrl="/assets/icons/eye.svg"
-alt="views"
-value={views}
-title=" Views"
-textStyles="small-medium text-dark400_light800"
-/>
+          <Matrix 
+          imgUrl="/icons/like.svg"
+          alt="like"
+          value={upvotes}
+          title=" Votes"
+          textStyles="small-medium text-dark400_light800"
+          />
+          <Matrix 
+          imgUrl="/icons/message.svg"
+          alt="answers"
+          value={answers}
+          title=" Answers"
+          textStyles="small-medium text-dark400_light800"
+          />
+          <Matrix 
+          imgUrl="/icons/eye.svg"
+          alt="views"
+          value={views}
+          title=" Views"
+          textStyles="small-medium text-dark400_light800"
+          />
         </div>
       </div>
 
