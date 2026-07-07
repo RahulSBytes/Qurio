@@ -15,7 +15,7 @@ import Pagination from "@/components/Pagination";
 
 
 export const metadata: Metadata = {
-  title: "Dev Overflow | Home",
+  title: "Qurio | Home",
   description:
     "Discover different programming questions and answers with recommendations from the community.",
 };
