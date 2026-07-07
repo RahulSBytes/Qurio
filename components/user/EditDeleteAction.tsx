@@ -33,7 +33,6 @@ const EditDeleteAction = ({ type, itemId }: Props) => {
 
   const handleDelete = async () => {
     if (type === "Question") {
-      // TODO: implement delete question (deleteQuestion)
       await deleteQuestion({ questionId: itemId });
 
       toast({
@@ -42,7 +41,6 @@ const EditDeleteAction = ({ type, itemId }: Props) => {
         description: "Your question has been successfully deleted.",
       });
     } else if (type === "Answer") {
-      // TODO: implement delete answer (deleteAnswer)
       await deleteAnswer({ answerId: itemId });
 
       toast({
