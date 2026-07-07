@@ -16,8 +16,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Google,
     Credentials({
       async authorize(credentials) {
-
-        console.log("i am executed in auth.ts")
         const validatedFields = SignInSchema.safeParse(credentials);
 
         if (validatedFields.success) {
@@ -40,7 +38,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           if (passwordsMatch)
             return {
-              id: existingUser.id,
+              id: existingUser._id.toString(),
               name: existingUser.name,
               email: existingUser.email,
               image: existingUser.image,
