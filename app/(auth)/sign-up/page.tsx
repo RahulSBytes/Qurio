@@ -7,7 +7,7 @@ import { signUpSchema } from "@/lib/validation";
 
 const SignUp = () => (
   <AuthForm
-    formType="SIGN_UP"
+    FormType="SIGN_UP"
     schema={signUpSchema}
     defaultValues={{ username: "", name: "", email: "", password: "" }}
     onSubmit={signUpWithCredentials}
