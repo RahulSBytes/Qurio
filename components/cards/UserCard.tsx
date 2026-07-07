@@ -2,13 +2,13 @@ import UserAvatar from "../UserAvatar";
 
 const UserCard = ({ _id, name, image, username }: User) => {
   return (
-    <div className="shadow-light100_darknone xs:w-[230px] w-full">
+    <div className="shadow-light100_darknone xs:w-57.5 w-full">
       <article className="background-light900_dark200 light-border flex w-full flex-col items-center justify-center rounded-2xl border p-8">
         <UserAvatar
           id={_id}
           name={name}
           imageUrl={image}
-          className="size-[100px] rounded-full object-cover"
+          className="size-25 rounded-full object-cover"
           fallbackClassName="text-3xl tracking-widest"
         />
 

@@ -20,6 +20,8 @@ import Votes from "@/components/votes/Votes";
 import { hasSavedQuestion } from "@/lib/actions/collection.action";
 import SaveQuestion from "@/components/questions/SaveQuestion";
 
+
+
 export async function generateMetadata({
   params,
 }: RouteParams): Promise<Metadata> {
@@ -83,6 +85,8 @@ const Page = async ({ params, searchParams }: RouteParams) => {
               className="size-5.5"
               fallbackClassName="text-[10px]"
             />
+
+            
 
             <Link href={ROUTES.PROFILE(question.author._id)}>
               <p className="paragraph-semibold text-dark300_light700">

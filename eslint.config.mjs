@@ -29,6 +29,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Ignore shadcn/ui generated components
+    "components/ui/**",
   ]),
 ]);
 

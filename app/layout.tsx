@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import {SessionProvider} from "next-auth/react"
 import {
@@ -6,7 +6,7 @@ import {
   JetBrains_Mono as JetBrainsMono,
   Geist,
 } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 import ThemeProvider from "@/context/Theme";

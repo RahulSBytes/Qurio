@@ -44,9 +44,6 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
   });
 
 
-
-
-
   const handleCreateAnswer = async (values: z.infer<typeof AnswerSchema>) => {
     startAnsweringTransition(async () => {
       const result = await createAnswer({
@@ -128,6 +125,7 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
     <div>
       <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
         <h4 className="paragraph-semibold text-dark400_light800">Write your answer here</h4>
+
 
         <Button
           className="btn light-border-2 text-primary-500 dark:text-primary-500 gap-1.5 rounded-md border px-4 py-2.5 shadow-none"
