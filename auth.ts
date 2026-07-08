@@ -25,17 +25,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           )) as ActionResponse<IAccountDoc>;
 
           if (!existingAccount) return null;
+
+          
           const { data: existingUser } = (await api.users.getById(
             existingAccount.userId.toString()
           )) as ActionResponse<IUserDoc>;
-
+          
+          console.log("log5", existingUser)
           if (!existingUser) return null;
-
+          
+          console.log("log6")
           const passwordsMatch = await bcrypt.compare(
             password,
             existingAccount.password!
           );
-
+          
+          console.log("log7 :: ", passwordsMatch)
           if (passwordsMatch)
             return {
               id: existingUser._id.toString(),

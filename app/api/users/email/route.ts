@@ -1,31 +1,28 @@
 import { NextResponse } from "next/server";
 
-import Account from "@/database/account.model";
+import User from "@/database/user.model";
 import handleError from "@/lib/handlers/error";
 import { NotFoundError, ValidationError } from "@/lib/http-errors";
 import dbConnect from "@/lib/mongoose";
-import { AccountSchema } from "@/lib/validation";
+import { UserSchema } from "@/lib/validation";
 
 export async function POST(request: Request) {
-  const { providerAccountId } = await request.json();
-  
+  const { email } = await request.json();
+
   try {
     await dbConnect();
 
-    const validatedData = AccountSchema.partial().safeParse({
-      providerAccountId,
-    });
+    const validatedData = UserSchema.partial().safeParse({ email });
     if (!validatedData.success)
       throw new ValidationError(validatedData.error.flatten().fieldErrors);
 
-    
-    const account = await Account.findOne({ providerAccountId });
-    if (!account) throw new NotFoundError("Account");
-    
+    const user = await User.findOne({ email });
+    if (!user) throw new NotFoundError("User");
+
     return NextResponse.json(
       {
         success: true,
-        data: account,
+        data: user,
       },
       {
         status: 200,

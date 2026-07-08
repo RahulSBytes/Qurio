@@ -45,7 +45,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <SessionProvider session={session}>
 
       <body
-        className={`${inter.variable} ${jetBrainsMono.variable} flex h-screen flex-col antialiased`}
+        className={`${inter.variable} ${jetBrainsMono.variable} flex max-h-screen flex-col antialiased`}
       >
         <ThemeProvider
           attribute="class"

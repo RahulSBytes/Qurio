@@ -56,21 +56,31 @@ export async function signUpWithCredentials(
     );
 
     await session.commitTransaction();
+  } catch (error) {
+    if (session.inTransaction()) {
+      await session.abortTransaction();
+    }
 
+    return handleError(error) as ErrorResponse;
+  } finally {
+    await session.endSession();
+  }
+
+  try {
     await signIn("credentials", {
       email,
       password,
       redirect: false,
     });
-
-    return { success: true };
   } catch (error) {
-    await session.abortTransaction();
+    console.log("signIn after signup failed ::", error);
     return handleError(error) as ErrorResponse;
-  } finally {
-    await session.endSession();
   }
+
+  return { success: true };
 }
+
+
 
 export async function signInWithCredentials(
   params: Pick<AuthCredentials, "email" | "password">
@@ -110,6 +120,8 @@ export async function signInWithCredentials(
 
     return { success: true };
   } catch (error) {
+    console.log("signInWithCredentials error hu :: ", error);
+
     return handleError(error) as ErrorResponse;
   }
 }

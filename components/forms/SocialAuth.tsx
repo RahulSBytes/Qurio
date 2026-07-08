@@ -27,13 +27,14 @@ function SocialAuth() {
 
   return (
     <div className="h-full w-full">
+      
       <div className="flex-center flex-col gap-2 sm:flex-row">
         <Button
           className="background-dark400_light900 py-3.5"
           onClick={() => handleSignIn("github")}
         >
           <Image
-            src="/assets/icons/github.svg"
+            src="/icons/github.svg"
             alt="github logo"
             width={20}
             height={20}
@@ -47,7 +48,7 @@ function SocialAuth() {
           onClick={() => handleSignIn("google")}
         >
           <Image
-            src="/assets/icons/google.svg"
+            src="/icons/google.svg"
             alt="google logo"
             width={20}
             height={20}

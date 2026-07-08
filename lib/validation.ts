@@ -72,7 +72,10 @@ export const UserSchema = z.object({
   reputation: z.number().optional(),
 });
 
-
+export const GlobalSearchSchema = z.object({
+  query: z.string(),
+  type: z.string().nullable().optional(),
+});
 
 export const AccountSchema = z.object({
   userId: z.string(),

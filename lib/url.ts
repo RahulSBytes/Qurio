@@ -3,7 +3,7 @@ import qs from "query-string";
 interface UrlQueryParams {
   params: string;
   key: string;
-  value: string;
+  value: string | null;
 }
 
 interface RemoveUrlQueryParams {
@@ -129,4 +129,26 @@ export function getDeviconClassName(techName: string) {
   };
 
   return `${techMap[normalizedTech] || "devicon-devicon-plain"} colored`;
+}
+
+
+
+
+export function removeKeysFromQuery({
+  params,
+  keysToRemove,
+}: RemoveUrlQueryParams) {
+  const currentUrl = qs.parse(params);
+
+  keysToRemove.forEach((key) => {
+    delete currentUrl[key];
+  });
+
+  return qs.stringifyUrl(
+    {
+      url: window.location.pathname,
+      query: currentUrl,
+    },
+    { skipNull: true }
+  );
 }

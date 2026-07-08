@@ -68,6 +68,7 @@ export function AuthForm<T extends FieldValues>({
 
   return (
     <Form {...form}>
+      
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
         className="w-full space-y-4 px-8"
@@ -102,7 +103,7 @@ export function AuthForm<T extends FieldValues>({
         <Button
           type="submit"
           disabled={form.formState.isSubmitting}
-          className="w-full"
+           className="primary-gradient paragraph-medium rounded-2 font-inter text-light-900! min-h-12 w-full px-4 py-3"
         >
           {form.formState.isSubmitting
             ? FormType === "SIGN_IN"
@@ -110,16 +111,22 @@ export function AuthForm<T extends FieldValues>({
               : "Signing up..."
             : ButtonText}
         </Button>
-        <p className="text-center text-sm">
-          Already have an account?
-          <Link
-            href={FormType === "SIGN_IN" ? ROUTES.SIGN_UP : ROUTES.SIGN_IN}
-            className="mx-1 text-blue-500"
-          >
-            {FormType === "SIGN_IN" ? "Sign up" : "Sign in"}
+      </form>
+       {FormType === "SIGN_IN" ? (
+        <p className="paragraph-regular text-dark400_light700 mt-6 text-center">
+          Don’t have an account?{" "}
+          <Link href={ROUTES.SIGN_UP} className="paragraph-semibold primary-text-gradient">
+            Sign up
           </Link>
         </p>
-      </form>
+      ) : (
+        <p className="paragraph-regular text-dark400_light700 mt-6 text-center">
+          Already have an account?{" "}
+          <Link href={ROUTES.SIGN_IN} className="paragraph-semibold primary-text-gradient">
+            Sign in
+          </Link>
+        </p>
+      )}
     </Form>
   );
 }

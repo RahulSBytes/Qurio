@@ -1,29 +1,28 @@
-import { Search } from "lucide-react";
 import Link from "next/link";
 import Theme from "./Theme";
 import MobileNavigation from "./MobileNavigation";
 import { auth } from "@/auth";
 import UserAvatar from "@/components/UserAvatar";
+import GlobalSearch from "@/components/search/GlobalSearch";
 
 async function Navbar() {
     const session = await auth();
   return (
-    <nav className="flex-between sticky z-30 h-14 border-b border-zinc-700 px-6">
+    <nav className="flex-between background-light900_dark200 shadow-light-300 fixed z-50 w-full gap-5 p-3 sm:px-12 dark:shadow-none">
       <Link
         href="/"
-        className="font-mono text-2xl font-bold tracking-wide text-zinc-200 transition hover:text-zinc-100"
+        className="flex items-center gap-1"
       >
+        <p className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900 max-sm:hidden">
+
         <span className="text-primary-500">Q</span>urio
+        </p>
       </Link>
-      <div className="flex-center dark:bg-dark-500 bg-light-500 gap-1 rounded-sm px-2 py-1">
-        <Search size={16} />
-        <input
-          placeholder="Search for Questions Here..."
-          className="text- px-1 outline-0 placeholder:text-sm"
-          type="text"
-        />
-      </div>
-      <div className="flex">
+
+      <GlobalSearch/>
+
+
+      <div className="flex-between gap-5">
         <Theme />
 
         {session?.user?.id && (

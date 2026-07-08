@@ -38,12 +38,6 @@ const MobileNavigation = async () => {
         <SheetTitle className="hidden">Navigation</SheetTitle>
 
         <Link href={ROUTES.HOME} className="flex items-center gap-1">
-          <Image
-            src="/images/site-logo.svg"
-            width={23}
-            height={23}
-            alt="Qurio Logo"
-          />
 
           <p className="h2-bold text-dark100_light900 font-space-grotesk">
             Q<span className="text-primary-500">urio</span>
