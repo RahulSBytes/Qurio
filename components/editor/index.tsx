@@ -50,14 +50,18 @@ function Editor({
 }: Props) {
 
     const { resolvedTheme } = useTheme();
-    const theme = resolvedTheme === 'dark' ? [basicDark] : [];
+     const theme = resolvedTheme === 'dark' ? [basicDark] : [];
+    const isDark = resolvedTheme === 'dark';
+
 
 return (
     <MDXEditor
         key={resolvedTheme}
         ref={editorRef}
         markdown={value}
-        className='background-light800_dark200 light-border-2 markdown-editor dark-editor w-full border'
+       className={`background-light800_dark200 border-red-500 light-border-2 markdown-editor dark-editor w-full border ${
+                isDark ? 'dark-theme dark-editor' : ''
+            }`}
         onChange={fieldChange}
         plugins={[
         headingsPlugin(),

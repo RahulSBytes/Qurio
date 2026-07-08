@@ -27,7 +27,7 @@ function UserAvatar({
     .slice(0, 2);
 
   return (
-    <Link href={`/profile/${id}`}>
+    <Link href={`/profiles/${id}`}>
       <Avatar className={cn("relative", className)}>
         {imageUrl ? (
           <Image

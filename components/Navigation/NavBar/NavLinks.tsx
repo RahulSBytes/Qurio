@@ -24,7 +24,7 @@ const NavLinks = ({ isMobileNav = false, userId }: Props) => {
           (pathname.includes(item.route) && item.route.length > 1) ||
           pathname === item.route;
 
-        if (item.route === "/profile") {
+        if (item.route === "/profiles") {
           if (userId) item.route = `${item.route}/${userId}`;
           else return null;
         }
@@ -37,7 +37,7 @@ const NavLinks = ({ isMobileNav = false, userId }: Props) => {
               isActive
                 ? "primary-gradient text-light-900 rounded-lg"
                 : "text-dark300_light900",
-              "flex items-center justify-start gap-4 bg-transparent p-4"
+              "flex items-center justify-start gap-4 bg-transparent p-3"
             )}
           >
             <Image

@@ -62,3 +62,8 @@
   --basePageBg: black;
   background: var(--basePageBg);
 }
+
+
+._contentEditable_f3hmk_379 {
+  color: var(--mauve-11) !important;
+}
